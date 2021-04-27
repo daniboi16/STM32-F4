@@ -1,3 +1,4 @@
+//// find the blog along with hardware conections and code explanation at :https://danielalapat.hashnode.dev/stm32-f4-timers
 #include "stm32f4xx.h"
 void configure_LED(void);
 void configure_TIM(void);
