@@ -1,3 +1,4 @@
+//find the blog with hardware and code explanation at : https://danielalapat.hashnode.dev/stm32-f4-led-blink-and-setup
 #include "stm32f4xx.h"
 void configureLED(void);
 void msDelay(uint32_t msTime);
