@@ -1,3 +1,4 @@
+// find the blog along with hardware conections and code explanation at :https://danielalapat.hashnode.dev/stm32-f4-interfacing-lcd
 #include "stm32f4xx.h"
 void configureGPIO(void);
 void msDelay(uint32_t msTime);
