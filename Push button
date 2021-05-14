@@ -1,0 +1,45 @@
+// hardware connections and code explanation can be found at : https://danielalapat.hashnode.dev/rotary-encoder
+// to impliment the push button of the rotary encoder
+
+#include "stm32f4xx.h"
+void configureLED(void);
+void configurePB(void);
+void msDelay(uint32_t msTime);
+int main(void)
+{
+	configureLED();
+	configurePB();
+	unsigned int PB_state=0;                //variable to store the state of the button
+	msDelay(500);
+	while(1)
+	{
+		PB_state=((GPIOE->IDR) & (0x1UL<<0));
+		if(PB_state==(0x1UL<<0))
+		{
+			GPIOD->ODR = 0x0UL;
+		}
+		else
+		{
+			GPIOD->ODR = (0xFUL<<12);	
+			msDelay(100);
+		}
+	}
+}
+void configureLED(void)
+{
+	RCC->AHB1ENR |=(1UL<<3);
+	GPIOD->MODER &= ~(0xFFUL<<12*2);
+	GPIOD->MODER |= (0x55UL<<12*2);
+}
+
+void configurePB(void)
+{
+	RCC->AHB1ENR |=(0x1UL<<4);
+}
+
+void msDelay(uint32_t msTime)
+{
+	//"For loop" takes 4 clock cycles to get executed. Clock frequency is 16MHz
+	//16MHz/4=4MHz. If we want 1000ms delay, 4MHz/1000=4000, so we have to multiply by 4000 to get a delay of 1s
+	for(uint32_t i=0;i<(msTime*4000);i++);
+}
