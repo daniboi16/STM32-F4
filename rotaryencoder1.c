@@ -37,6 +37,12 @@ void configureLED(void)               //to configure the LED pins as output
 	GPIOD->MODER |= (0x55UL<<12*2);                       //to set pins 12,13,14,15 to output "01" 
 }
 
+void configurePB(void)		     //to configure the GPIO pins as input
+{
+	RCC->AHB1ENR |=(0x1UL<<4);			     //to enable the clock for port E
+}	
+
+
 void msDelay(uint32_t msTime)       //to set up the software delay
 {
 	//"For loop" takes 4 clock cycles to get executed. Clock frequency is 16MHz
