@@ -1,2 +1,2 @@
 # STM32-F4
-Register level codes in c for the STM32F407VG Discovery board
+Register level codes in c for the STM32F407VG Discovery board developed in Keil IDE
