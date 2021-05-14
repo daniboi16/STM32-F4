@@ -1,4 +1,6 @@
 //find the blog with hardware and code explanation at : https://danielalapat.hashnode.dev/stm32-f4-led-blink-and-setup
+//to blink all four onboard LEDs  
+
 #include "stm32f4xx.h"
 void configureLED(void);
 void msDelay(uint32_t msTime);
@@ -8,24 +10,23 @@ int main(void)
 	msDelay(500);
 	while (1)
 	{
-		GPIOD->ODR ^=(0xAUL<<12);
+		GPIOD->ODR ^=(0xAUL<<12);		//to toggel the red and green LED
 		msDelay(100);
-		GPIOD->ODR ^=(0x5UL<<12);
+		GPIOD->ODR ^=(0x5UL<<12);		//to toggle the orange and blue LED
 		msDelay(100);
 	}
 }
 
-void configureLED(void)
+void configureLED(void)			//to set GPIO pins as output
 {
-	RCC->AHB1ENR  |= (1UL<<3);
-	GPIOD->MODER &= ~(0xFFUL<<12*2);
-	GPIOD->MODER |= (0x55UL<<12*2);
+	RCC->AHB1ENR  |= (1UL<<3);			//to enable clock for port D
+	GPIOD->MODER &= ~(0xFFUL<<12*2);		//to make sure that pins are initially 0
+	GPIOD->MODER |= (0x55UL<<12*2);			//to set the pins 12,13,14,15 to output "01"
 }
 
-void msDelay(uint32_t msTime)
+void msDelay(uint32_t msTime)		//to impliment software delay
 {
-	for (uint32_t i=0;i<msTime*4000;i++)
-	{
-		__NOP();
-	}
+	//"For loop" takes 4 clock cycles to get executed. Clock frequency is 16MHz
+	//16MHz/4=4MHz. If we want 1000ms delay, 4MHz/1000=4000, so we have to multiply by 4000 to get a delay of 1s
+	for (uint32_t i=0;i<msTime*4000;i++);
 }
