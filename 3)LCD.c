@@ -59,7 +59,10 @@ void msDelay(uint32_t msTime)		//to impliment software delay
 {
 	//"For loop" takes 4 clock cycles to get executed. Clock frequency is 16MHz
 	//16MHz/4=4MHz. If we want 1000ms delay, 4MHz/1000=4000, so we have to multiply by 4000 to get a delay of 1s
-	for (uint32_t i=0;i<msTime*4000;i++);
+	for (uint32_t i=0;i<msTime*4000;i++)
+	{
+		__NOP();
+	}
 }
 
 void command(void)			//handshake to send commands to LCD
