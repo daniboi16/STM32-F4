@@ -1,6 +1,3 @@
-// to impliment the push button of the rotary encoder
-// SW pin connected to port E pin 0 
-
 #include "stm32f4xx.h"
 void configureLED(void);
 void configurePB(void);
