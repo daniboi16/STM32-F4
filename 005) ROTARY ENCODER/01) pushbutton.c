@@ -1,4 +1,3 @@
-// hardware connections and code explanation can be found at : https://danielalapat.hashnode.dev/rotary-encoder
 // to impliment the push button of the rotary encoder
 // SW pin connected to port E pin 0 
 
