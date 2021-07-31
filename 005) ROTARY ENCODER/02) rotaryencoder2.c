@@ -1,9 +1,3 @@
-// hardware connections and code explanation available at : https://danielalapat.hashnode.dev/rotary-encoder 
-// to turn the green led on if the encoder is rotated clockwise and the red led if rotated anticlockwise
-// if state =50, then turn of the blue and yellow LED
-// if button is pressed then turn on all four LED
-// CLK pin connected to port E pin 2 and DT to port E pin 1
-
 #include "stm32f4xx.h"
 void configureLED(void);
 void configurePB(void);
