@@ -1,5 +1,3 @@
-//find the hardware schematic and code explanatino here: https://danielalapat.hashnode.dev/ir-remote-3
-
 #include "stm32f4xx.h"  									// included header file for the board
 
 //function initializations
