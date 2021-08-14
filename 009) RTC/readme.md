@@ -7,3 +7,6 @@ challenge. The internal RTC means that there are no hardware connections as the 
 Some of the features available in the inbuild RTC. It has the time and data with automatic leap year correction like the DS1307. It does have additional feature which is absent
 in the DS1307 like: wake up, alarm, timestamp, daylight saving correction and tamper detection as well as a more precise oscillator. 
 
+![Screenshot (213)](https://user-images.githubusercontent.com/71063467/129457356-ecd0c872-1632-444b-ab8b-116548824cea.png)
+
+BLOG: [Internal RTC](https://danielalapat.hashnode.dev/internal-rtc)
